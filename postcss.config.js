@@ -1,6 +1,7 @@
 module.exports = {
   plugins: {
     tailwindcss: {},
-    autoprefixer: {}
+    autoprefixer: {},
+    '@csstools/postcss-oklab-function': { preserve: true }
   }
 }

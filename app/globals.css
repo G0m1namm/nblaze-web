@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-accent: 62.87% 0.249 23.89;
+    --color-primary: 88.6% 0.045 37.18;
+    --color-dark: 6.72% 0 0;
+    --color-light: 98.29% 0.001 17.18;
+  }
+
+  .home-display-type {
+    font-size: 16vw;
+    font-weight: 900;
+    line-height: 12.5vw;
+  }
+}

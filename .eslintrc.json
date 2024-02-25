@@ -1,5 +1,5 @@
 {
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "perfectionist"],
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
@@ -7,6 +7,43 @@
   ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
+    "@typescript-eslint/no-explicit-any": "error",
+    "perfectionist/sort-imports": [
+      "error",
+      {
+        "type": "natural",
+        "order": "asc",
+        "groups": [
+          "type",
+          "react",
+          "nanostores",
+          ["builtin", "external"],
+          "internal-type",
+          "internal",
+          ["parent-type", "sibling-type", "index-type"],
+          ["parent", "sibling", "index"],
+          "side-effect",
+          "style",
+          "object",
+          "unknown"
+        ],
+        "custom-groups": {
+          "value": {
+            "react": ["react", "react-*"],
+            "nanostores": "@nanostores/**"
+          },
+          "type": {
+            "react": "react"
+          }
+        },
+        "newlines-between": "always",
+        "internal-pattern": [
+          "@/components/**",
+          "@/fonts/**",
+          "@/pages/**",
+          "@/lib/**"
+        ]
+      }
+    ]
   }
 }

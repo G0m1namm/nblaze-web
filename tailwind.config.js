@@ -1,3 +1,6 @@
+import fluidTypography from 'tailwind-fluid-typography'
+import plugin from 'tailwindcss/plugin'
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -21,5 +24,17 @@ module.exports = {
       }
     }
   },
-  plugins: [require('tailwind-fluid-typography')]
+  plugins: [
+    fluidTypography,
+    plugin(function ({ addVariant }) {
+      addVariant('em', ({ container }) => {
+        container.walkRules((rule) => {
+          rule.selector = `.em\\:${rule.selector.slice(1)}`
+          rule.walkDecls((decl) => {
+            decl.value = decl.value.replace('rem', 'em')
+          })
+        })
+      })
+    })
+  ]
 }

@@ -9,10 +9,12 @@
     --color-dark: 6.72% 0 0;
     --color-light: 98.29% 0.001 17.18;
   }
+}
 
-  .home-display-type {
+@layer utilities {
+  .fluid-wide {
     font-size: 16vw;
     font-weight: 900;
-    line-height: 12.5vw;
+    line-height: 1.1;
   }
 }

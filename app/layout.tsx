@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/all'
 import { Open_Sans as FontSans } from 'next/font/google'
 import localFont from 'next/font/local'
 
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import { cn } from '@/lib/utils'
 
 import './globals.css'
@@ -42,6 +42,7 @@ export default function RootLayout({
           openSans.variable,
           SequelWideFont.variable
         )}
+        data-module-load="m1"
       >
         <Header />
         {children}

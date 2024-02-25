@@ -17,4 +17,9 @@
     font-weight: 900;
     line-height: 1.1;
   }
+
+  .mask-fade {
+    -webkit-mask-image: linear-gradient(to top, transparent 25%, black 75%);
+    mask-image: linear-gradient(to top, transparent 25%, black 75%);
+  }
 }

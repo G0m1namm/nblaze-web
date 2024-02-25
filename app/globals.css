@@ -19,7 +19,7 @@
   }
 
   .mask-fade {
-    -webkit-mask-image: linear-gradient(to top, transparent 25%, black 75%);
-    mask-image: linear-gradient(to top, transparent 25%, black 75%);
+    -webkit-mask-image: linear-gradient(to top, transparent 8%, black 75%);
+    mask-image: linear-gradient(to top, transparent 8%, black 75%);
   }
 }

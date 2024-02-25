@@ -5,9 +5,12 @@ import { ElementRef, useEffect, useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import Image from 'next/image'
 
 import Hero from '@/components/Hero'
 import MembersGallery from '@/components/MembersGallery'
+
+import RedMoon from '../public/images/red-moon.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -62,8 +65,24 @@ export default function Home() {
       <main
         ref={mainContainerRef}
         data-scroll-container
-        className="transition-colors duration-1000"
+        className="relative transition-colors duration-1000"
       >
+        <div
+          className="absolute left-1/2 top-[50vh] aspect-square w-full -translate-x-1/2 opacity-0 transition-opacity duration-500 md:top-[40vh] md:w-2/3 xl:top-[10vh] 2xl:w-1/2"
+          data-scroll
+          data-scroll-repeat
+          data-scroll-class="opacity-100"
+        >
+          <Image
+            data-scroll
+            data-scroll-speed="-0.3"
+            className="mask-fade"
+            src={RedMoon}
+            alt="Red Moon"
+            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 70vw, 100vw"
+            fill
+          />
+        </div>
         <Hero />
         <MembersGallery />
         <div

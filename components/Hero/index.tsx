@@ -2,10 +2,7 @@ import { ElementRef, useRef } from 'react'
 
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
-import Image from 'next/image'
 import SplitText from 'split-type'
-
-import RedMoon from '../../public/images/red-moon.webp'
 
 export default function Hero() {
   const sectionRef = useRef<ElementRef<'h1'>>(null)
@@ -23,19 +20,39 @@ export default function Hero() {
           types: 'chars',
           charClass: 'opacity-0 translate-y-full'
         })
-        const tl = gsap.timeline()
-        tl.to(subtitle.words, {
+        const subtitleGsap = gsap.to(subtitle.words, {
           y: 0,
           opacity: 1,
           stagger: 0.05,
-          ease: 'power4.out',
-          onUpdate: console.log
-        }).to(title.chars, {
+          ease: 'power4.out'
+        })
+        const titleGsap = gsap.to(title.chars, {
           y: 0,
           opacity: 1,
           stagger: 0.05,
-          ease: 'power4.out',
-          onUpdate: console.log
+          ease: 'power4.out'
+        })
+
+        const playHomeTextAnimation = () => {
+          titleGsap.play()
+          subtitleGsap.play()
+        }
+        const reverseHomeTextAnimation = () => {
+          titleGsap.reverse()
+          subtitleGsap.reverse()
+        }
+
+        gsap.to(sectionRef.current, {
+          delay: 0,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 20%',
+            end: 'bottom 60%',
+            onEnter: playHomeTextAnimation,
+            onLeave: reverseHomeTextAnimation,
+            onEnterBack: playHomeTextAnimation,
+            onLeaveBack: reverseHomeTextAnimation
+          }
         })
       }
     },
@@ -45,27 +62,15 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 flex h-dvh h-screen w-full flex-col justify-end overflow-x-hidden transition-[padding] em:p-16 sm:em:p-8 md:em:p-4 "
+      className="relative z-10 flex h-dvh w-full flex-col justify-end overflow-hidden transition-[padding] em:p-16 sm:em:p-8 md:em:p-4"
       data-bgcolor="--color-dark"
       data-textcolor="--color-accent"
     >
       <div
-        className="absolute bottom-0 left-1/2 z-[0] aspect-square w-full -translate-x-1/2 opacity-0 transition-opacity duration-500 md:w-2/3 2xl:-bottom-[5%] 2xl:w-1/2"
+        style={{ opacity: 'calc(1 - var(--progress))' }}
         data-scroll
-        data-scroll-repeat
-        data-scroll-class="opacity-100"
+        data-scroll-css-progress
       >
-        <Image
-          data-scroll
-          data-scroll-speed="-0.3"
-          className="mask-fade"
-          src={RedMoon}
-          alt="Red Moon"
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 70vw, 100vw"
-          fill
-        />
-      </div>
-      <div>
         <h2
           ref={subtitleRef}
           className="overflow-hidden font-light uppercase italic fluid-sm sm:fluid-xl lg:fluid-3xl"

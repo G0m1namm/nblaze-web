@@ -47,7 +47,7 @@ export default function Hero() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 20%',
-            end: 'bottom 60%',
+            end: 'bottom 70%',
             onEnter: playHomeTextAnimation,
             onLeave: reverseHomeTextAnimation,
             onEnterBack: playHomeTextAnimation,
@@ -66,11 +66,7 @@ export default function Hero() {
       data-bgcolor="--color-dark"
       data-textcolor="--color-accent"
     >
-      <div
-        style={{ opacity: 'calc(1 - var(--progress))' }}
-        data-scroll
-        data-scroll-css-progress
-      >
+      <div>
         <h2
           ref={subtitleRef}
           className="overflow-hidden font-light uppercase italic fluid-sm sm:fluid-xl lg:fluid-3xl"

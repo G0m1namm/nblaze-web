@@ -87,8 +87,8 @@ export default function Home() {
         <MembersGallery />
         <div
           className="h-screen"
-          data-bgcolor="--color-accent"
-          data-textcolor="--color-dark"
+          data-bgcolor="--color-primary"
+          data-textcolor="--color-accent"
         ></div>
       </main>
     </div>

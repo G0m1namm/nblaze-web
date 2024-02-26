@@ -48,8 +48,8 @@ export default function MembersGallery() {
           ease: 'power4.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 30%',
-            end: 'bottom 80%',
+            start: 'top 80%',
+            end: 'bottom bottom',
             toggleActions: 'play reverse play reverse'
           }
         })
@@ -61,9 +61,9 @@ export default function MembersGallery() {
   return (
     <section
       ref={sectionRef}
-      className="relative isolate mt-[30vh] mix-blend-multiply md:mt-[40vh] xl:mt-[80vh]"
-      data-bgcolor="--color-accent"
-      data-textcolor="--color-dark"
+      className="relative isolate mt-[25vh] md:mt-[40vh] xl:mt-[80vh]"
+      data-bgcolor="--color-dark"
+      data-textcolor="--color-accent"
     >
       <div className="fixed bottom-0 left-0 z-10 flex h-screen max-h-dvh flex-col justify-end em:p-16 sm:em:p-8 md:em:p-4">
         <h2
@@ -73,7 +73,7 @@ export default function MembersGallery() {
           Miembros
         </h2>
       </div>
-      <div className="grid grid-cols-[repeat(8,1fr)] em:px-5">
+      <div className="grid grid-cols-[repeat(4,1fr)] em:px-16 md:em:px-28 xl:em:px-[10vw] ">
         {MEMBERS_DATA.map((member) => (
           <picture
             key={`member-${member.row}-${member.col}`}
@@ -82,16 +82,19 @@ export default function MembersGallery() {
             data-scroll
             data-scroll-speed={Math.random() * 0.3 - 0.1}
           >
+            <div className="absolute -top-[25px] left-0 transition-transform duration-500 md:-top-[30px] lg:-top-[4vh]">
+              <span className="uppercase fluid-sm md:fluid-base lg:fluid-lg">
+                {member.alt}
+              </span>
+            </div>
             <Image
-              className="object-cover transition-transform duration-700 ease-out will-change-[transform,opacity]"
+              className="object-cover "
               src={`/images/members/${member.src}`}
               alt={`${member.alt} Nblaze member`}
-              sizes="20vw"
+              sizes="(max-width: 768px) 200px, (max-width: 1200px) 400px, 500px"
               fill
               data-scroll
               data-scroll-repeat
-              data-scroll-class="scale-125"
-              data-scroll-offset="10%, 10%"
             />
           </picture>
         ))}

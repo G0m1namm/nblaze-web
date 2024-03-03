@@ -7,6 +7,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import Image from 'next/image'
 
+import CapsulesContainer from '@/components/CapsulesContainer'
 import Hero from '@/components/Hero'
 import MembersGallery from '@/components/MembersGallery'
 import VideoSection from '@/components/VideoSection'
@@ -87,6 +88,7 @@ export default function Home() {
         <Hero />
         <MembersGallery />
         <VideoSection />
+        <CapsulesContainer />
       </main>
     </div>
   )

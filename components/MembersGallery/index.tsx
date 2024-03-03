@@ -80,7 +80,7 @@ export default function MembersGallery() {
             style={{ gridRow: member.row, gridColumn: member.col }}
             className="relative block aspect-[3/4] w-full bg-dark will-change-transform"
             data-scroll
-            data-scroll-speed={Math.random() * 0.3 - 0.1}
+            data-scroll-speed={member.speed}
           >
             <div className="absolute -top-[25px] left-0 transition-transform duration-500 md:-top-[30px] lg:-top-[4vh]">
               <span className="uppercase fluid-sm md:fluid-base lg:fluid-lg">

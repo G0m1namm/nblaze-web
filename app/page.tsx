@@ -9,6 +9,7 @@ import Image from 'next/image'
 
 import Hero from '@/components/Hero'
 import MembersGallery from '@/components/MembersGallery'
+import VideoSection from '@/components/VideoSection'
 
 import RedMoon from '../public/images/red-moon.webp'
 
@@ -56,7 +57,7 @@ export default function Home() {
     },
     {
       scope: mainContainerRef,
-      dependencies: [gsap]
+      dependencies: [gsap, wrapperRef.current]
     }
   )
 
@@ -85,11 +86,7 @@ export default function Home() {
         </div>
         <Hero />
         <MembersGallery />
-        <div
-          className="h-screen"
-          data-bgcolor="--color-primary"
-          data-textcolor="--color-accent"
-        ></div>
+        <VideoSection />
       </main>
     </div>
   )

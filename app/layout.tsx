@@ -42,7 +42,7 @@ export default function RootLayout({
           openSans.variable,
           SequelWideFont.variable
         )}
-        data-module-load="m1"
+        suppressHydrationWarning
       >
         <Header />
         {children}

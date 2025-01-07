@@ -10,7 +10,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://github.com/user-attachments/assets/0a7b45bb-1ea2-4627-b05d-d3aaecb2cd0a" alt="project-screenshot" width="400" height="400/">
+<img src="https://github.com/user-attachments/assets/0a7b45bb-1ea2-4627-b05d-d3aaecb2cd0a" alt="project-screenshot" width="800" height="400/">
 
   
   
